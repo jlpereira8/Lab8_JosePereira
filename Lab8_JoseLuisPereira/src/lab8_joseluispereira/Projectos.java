@@ -48,7 +48,7 @@ public class Projectos {
 
     @Override
     public String toString() {
-        return "Projectos: " +nombre;
+        return nombre;
     }
     
     

@@ -19,15 +19,27 @@ public class Actividades {
     private ArrayList<Actividades>actividades_predecesoras;
     private ArrayList<Actividades>actividades_sucesoras;
     private int posibilidad_retraso;
+    private String tipo;
 
     public Actividades() {
     }
 
-    public Actividades(String nombre, int duracion, int posibilidad_retraso) {
+    public Actividades(String nombre, int duracion, int posibilidad_retraso, String tipo) {
         this.nombre = nombre;
         this.duracion = duracion;
         this.posibilidad_retraso = posibilidad_retraso;
+        this.tipo = tipo;
     }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    
 
     public String getNombre() {
         return nombre;

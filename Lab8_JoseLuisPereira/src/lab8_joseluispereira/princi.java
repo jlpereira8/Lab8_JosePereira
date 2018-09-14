@@ -5,6 +5,13 @@
  */
 package lab8_joseluispereira;
 
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+
 /**
  *
  * @author j0c3lwiz
@@ -27,21 +34,462 @@ public class princi extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jtap = new javax.swing.JTabbedPane();
+        uno = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        tf_nombre = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        sp_posibilidad_retraso = new javax.swing.JSpinner();
+        jLabel4 = new javax.swing.JLabel();
+        sp_duracion = new javax.swing.JSpinner();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        tf_nombre_projecto = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        wombo_projecto = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        wombo_tipo = new javax.swing.JComboBox<>();
+        jLabel11 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        projectos = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jl_sucesoras = new javax.swing.JList<>();
+        jButton3 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jt_activs = new javax.swing.JTree();
+        actividad_predecesoras = new javax.swing.JComboBox<>();
+        jButton4 = new javax.swing.JButton();
+        trrs = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jButton5 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jtap.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jtapStateChanged(evt);
+            }
+        });
+
+        uno.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setText("Crear Actividades");
+
+        jLabel2.setText("Nombre Actividad :");
+
+        jLabel3.setText("Posibilidad de Retraso :");
+
+        jLabel4.setText("Duracion :");
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel5.setText("Crear Projecto");
+
+        jLabel6.setText("Nombre Projecto");
+
+        jButton1.setText("Crear Actividad");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
+        jButton2.setText("Crear Projecto");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+
+        jLabel9.setText("Projecto");
+
+        wombo_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Predecesora", "Sucesora" }));
+
+        jLabel11.setText("Tipo");
+
+        javax.swing.GroupLayout unoLayout = new javax.swing.GroupLayout(uno);
+        uno.setLayout(unoLayout);
+        unoLayout.setHorizontalGroup(
+            unoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(unoLayout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(70, 70, 70))
+            .addGroup(unoLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(77, 77, 77))
+            .addGroup(unoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(unoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(unoLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(unoLayout.createSequentialGroup()
+                        .addGroup(unoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel11))
+                        .addGap(21, 21, 21)
+                        .addGroup(unoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(wombo_projecto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tf_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sp_posibilidad_retraso, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sp_duracion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(wombo_tipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                        .addComponent(jLabel6)
+                        .addGap(18, 18, 18)
+                        .addComponent(tf_nombre_projecto, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29))))
+        );
+        unoLayout.setVerticalGroup(
+            unoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(unoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(unoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel5))
+                .addGap(75, 75, 75)
+                .addGroup(unoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(wombo_projecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel6)
+                    .addComponent(tf_nombre_projecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(unoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(tf_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
+                .addGroup(unoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(sp_posibilidad_retraso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(36, 36, 36)
+                .addGroup(unoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(sp_duracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(unoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(wombo_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addGroup(unoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton1))
+                .addGap(24, 24, 24))
+        );
+
+        jtap.addTab("Crear", uno);
+
+        projectos.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                projectosItemStateChanged(evt);
+            }
+        });
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel8.setText("Seleccione la actividad Sucesora");
+
+        jl_sucesoras.setModel(new DefaultListModel());
+        jScrollPane2.setViewportView(jl_sucesoras);
+
+        jButton3.setText("Agregar ");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
+
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Projectos");
+        jt_activs.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane3.setViewportView(jt_activs);
+
+        jButton4.setText("ola wenas");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(actividad_predecesoras, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(112, 112, 112)
+                                .addComponent(jButton3))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(129, 129, 129)
+                                .addComponent(jLabel8)))
+                        .addGap(0, 147, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(projectos, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addGap(113, 113, 113))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(18, 18, 18)
+                        .addComponent(projectos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(actividad_predecesoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton4)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(jButton3)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        jtap.addTab("Añadir Actividades ", jPanel1);
+
+        trrs.setBorder(new javax.swing.border.MatteBorder(null));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel10.setText("Añadir Actividades");
+
+        jLabel7.setText("Nombre del projecto:");
+
+        jList1.setModel(new DefaultListModel());
+        jScrollPane1.setViewportView(jList1);
+
+        jButton5.setText("Añadir actividad");
+
+        javax.swing.GroupLayout trrsLayout = new javax.swing.GroupLayout(trrs);
+        trrs.setLayout(trrsLayout);
+        trrsLayout.setHorizontalGroup(
+            trrsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(trrsLayout.createSequentialGroup()
+                .addGroup(trrsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(trrsLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(trrsLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(trrsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(trrsLayout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(18, 18, 18)
+                                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(trrsLayout.createSequentialGroup()
+                                .addGap(86, 86, 86)
+                                .addComponent(jButton5)))))
+                .addContainerGap(474, Short.MAX_VALUE))
+        );
+        trrsLayout.setVerticalGroup(
+            trrsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(trrsLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jLabel10)
+                .addGap(36, 36, 36)
+                .addGroup(trrsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton5)
+                .addContainerGap(63, Short.MAX_VALUE))
+        );
+
+        jtap.addTab("Añadir Actividad a Projecto", trrs);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 663, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jtap)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 418, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jtap)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        String f = wombo_tipo.getSelectedItem().toString();
+        if (f.equals("Sucesora")) {
+            try {
+                String nombre = tf_nombre.getText();
+                int duracion = (int) sp_duracion.getValue();
+                int posibilidad = (int) sp_posibilidad_retraso.getValue();
+                actividades_sucesoras.add(new Actividades(nombre, duracion, posibilidad, f));
+                JOptionPane.showMessageDialog(this, "Actividad Sucesora creada Correctamente");
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Hubo un error al crear la Actividad");
+            }
+
+        } else {
+            try {
+                String s = wombo_projecto.getSelectedItem().toString();
+                if (s.length() > 0) {
+                    String nombre = tf_nombre.getText();
+                    int duracion = (int) sp_duracion.getValue();
+                    int posibilidad = (int) sp_posibilidad_retraso.getValue();
+                    actividades_predecesoras.add(new Actividades(nombre, duracion, posibilidad, f));
+                    int pos = -1;
+                    for (int i = 0; i < projects.size(); i++) {
+                        if (projects.get(i).getNombre().equals(s)) {
+                            pos = i;
+                        }
+                    }
+                    Actividades sexo = new Actividades(nombre, duracion, posibilidad, f);
+                    ArrayList<Actividades> ola = new ArrayList<>();
+                    sexo.setActividades_sucesoras(ola);
+                    projects.get(pos).getActividades().add(sexo);
+                    JOptionPane.showMessageDialog(this, "Actividad Predecesora creada Correctamente");
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Hubo un error al crear la Actividad");
+            }
+
+        }
+
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        String nombre = tf_nombre_projecto.getText();
+        int auz = 0;
+        for (int i = 0; i < projects.size(); i++) {
+            if (projects.get(i).getNombre().equals(nombre)) {
+                auz = 1;
+            }
+        }
+        if (auz == 0) {
+            projects.add(new Projectos(nombre));
+            DefaultComboBoxModel m = (DefaultComboBoxModel) wombo_projecto.getModel();
+            m.addElement(new Projectos(nombre));
+            wombo_projecto.setModel(m);
+        } else {
+            JOptionPane.showMessageDialog(this, "Un projecto no puede tener el mismo nombre");
+        }
+
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jtapStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jtapStateChanged
+        // TODO add your handling code here:
+        if (jtap.getSelectedIndex() == 1) {
+            System.out.println("ola");
+            DefaultComboBoxModel m = (DefaultComboBoxModel) wombo_projecto.getModel();
+            DefaultComboBoxModel m2 = (DefaultComboBoxModel) projectos.getModel();
+            m2.removeAllElements();
+            m.removeAllElements();
+            for (int i = 0; i < projects.size(); i++) {
+                m.addElement(projects.get(i));
+                m2.addElement(projects.get(i));
+            }
+            projectos.setModel(m2);
+            wombo_projecto.setModel(m);
+
+            DefaultListModel modelolista = (DefaultListModel) jl_sucesoras.getModel();
+            modelolista.removeAllElements();
+            for (int i = 0; i < actividades_sucesoras.size(); i++) {
+                modelolista.addElement(actividades_sucesoras.get(i));
+            }
+            jl_sucesoras.setModel(modelolista);
+        }
+        DefaultTreeModel modelo = (DefaultTreeModel) jt_activs.getModel();//porque el ()
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelo.getRoot();
+        for (int i = 0; i < projects.size(); i++) {
+            DefaultMutableTreeNode projecto = new DefaultMutableTreeNode(projects.get(i));
+
+        }
+        modelo.reload();
+    }//GEN-LAST:event_jtapStateChanged
+
+    private void projectosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_projectosItemStateChanged
+        // TODO add your handling code here:
+        temp = (Projectos) projectos.getSelectedItem();
+        if (temp != null) {
+            DefaultComboBoxModel m = (DefaultComboBoxModel) actividad_predecesoras.getModel();
+            m.removeAllElements();
+            for (int i = 0; i < temp.getActividades().size(); i++) {
+                m.addElement(temp.getActividades().get(i));
+            }
+            actividad_predecesoras.setModel(m);
+        }
+    }//GEN-LAST:event_projectosItemStateChanged
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+        if (jl_sucesoras.getSelectedIndex() >= 0) {// verificar si teiene una persona seleccionada
+            DefaultListModel modeloLISTA = (DefaultListModel) jl_sucesoras.getModel();
+            DefaultComboBoxModel m = (DefaultComboBoxModel) actividad_predecesoras.getModel();
+            DefaultComboBoxModel m2 = (DefaultComboBoxModel) projectos.getModel();
+            String prede = m.getSelectedItem().toString();
+            String project = m2.getSelectedItem().toString();
+            int pos1 = -1;
+            int pos2 = -2;
+            for (int i = 0; i < projects.size(); i++) {
+                if (projects.get(i).getNombre().equals(project)) {
+                    pos1 = i;
+                }
+            }
+            for (int i = 0; i < temp.getActividades().size(); i++) {
+                if (temp.getActividades().get(i).getNombre().equals(prede)) {
+                    pos2 = i;
+                }
+            }
+            Actividades a = ((Actividades) modeloLISTA.get(jl_sucesoras.getSelectedIndex()));
+            System.out.println(temp.getActividades().get(pos2));
+            temp.getActividades().get(pos2).getActividades_sucesoras().add(a);
+
+        }
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // TODO add your handling code here:
+        System.out.println("Projecto " + projects.get(0));
+        System.out.println("Actividades Predecesoras " + projects.get(0).getActividades());
+        System.out.println("Actividades Sucesoras " + projects.get(0).getActividades().get(0).getActividades_sucesoras());
+    }//GEN-LAST:event_jButton4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -79,5 +527,45 @@ public class princi extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> actividad_predecesoras;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JList<String> jl_sucesoras;
+    private javax.swing.JTree jt_activs;
+    private javax.swing.JTabbedPane jtap;
+    private javax.swing.JComboBox<String> projectos;
+    private javax.swing.JSpinner sp_duracion;
+    private javax.swing.JSpinner sp_posibilidad_retraso;
+    private javax.swing.JTextField tf_nombre;
+    private javax.swing.JTextField tf_nombre_projecto;
+    private javax.swing.JPanel trrs;
+    private javax.swing.JPanel uno;
+    private javax.swing.JComboBox<String> wombo_projecto;
+    private javax.swing.JComboBox<String> wombo_tipo;
     // End of variables declaration//GEN-END:variables
+
+    ArrayList<Projectos> projects = new ArrayList();
+    ArrayList<Actividades> actividades_predecesoras = new ArrayList();
+    ArrayList<Actividades> actividades_sucesoras = new ArrayList();
+    Projectos temp;
 }
