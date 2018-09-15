@@ -909,29 +909,25 @@ public class princi extends javax.swing.JFrame {
                 System.out.println(actividades_principales);
                 modelo.reload();
             } else if (pos == 2) {
-                String p = JOptionPane.showInputDialog(this, "Ingrese la posicion de la actividad que desea modificar");              
+                String p = JOptionPane.showInputDialog(this, "Ingrese la posicion de la actividad");              
                 int pos2 = Integer.parseInt(p);
-                String p4 = JOptionPane.showInputDialog(this, "Ingrese la posicion de la Predecesora que desea modificar");
+                String p4 = JOptionPane.showInputDialog(this, "Ingrese la posicion de la Predecesora que desea Eliminar");
                 int pos24 = Integer.parseInt(p4);
                 actividad_seleccionado = ((Actividades) ((DefaultMutableTreeNode) raiz.getChildAt(0).getChildAt(pos2).getChildAt(0).getChildAt(pos24)).getUserObject());
-                String p2 = JOptionPane.showInputDialog(this, "Ingrese la nueva Duracion de la actividad PREDECESORA");
-                int pos22 = Integer.parseInt(p2);
-                actividad_seleccionado.setDuracion(pos22);               
-                int sex=olawenas.getSelectedIndex();
-                projects.get(sex).getActividades().get(pos2).getActividades_predecesoras().get(pos24).setDuracion(pos22);
-                JOptionPane.showMessageDialog(this, "Duracion de "+actividad_seleccionado.getNombre()+" modificada Correcamnete");
+                DefaultMutableTreeNode m=((DefaultMutableTreeNode) raiz.getChildAt(0).getChildAt(pos2).getChildAt(0).getChildAt(pos24));
+                modelo.removeNodeFromParent(m);
+                modelo.reload();                         
+                JOptionPane.showMessageDialog(this, "Nodo Eliminado Correctamente");
             } else if (pos == 3) {
-                String p = JOptionPane.showInputDialog(this, "Ingrese la posicion de la actividad que desea modificar");
+                String p = JOptionPane.showInputDialog(this, "Ingrese la posicion de la actividad");
                 int pos2 = Integer.parseInt(p);
-                String p4 = JOptionPane.showInputDialog(this, "Ingrese la posicion de la sucesora que desea modificar");
+                String p4 = JOptionPane.showInputDialog(this, "Ingrese la posicion de la sucesora que desea Eliminar");
                 int pos24 = Integer.parseInt(p4);
-                actividad_seleccionado = ((Actividades) ((DefaultMutableTreeNode) raiz.getChildAt(0).getChildAt(pos2).getChildAt(1).getChildAt(pos24)).getUserObject());                       
+                //actividad_seleccionado = ((Actividades) ((DefaultMutableTreeNode) raiz.getChildAt(0).getChildAt(pos2).getChildAt(1).getChildAt(pos24)).getUserObject());                       
                 String p2 = JOptionPane.showInputDialog(this, "Ingrese la nueva Duracion de la actividad SUCESORA");
-                int pos22 = Integer.parseInt(p2);
-                actividad_seleccionado.setDuracion(pos22);
-                int sex=olawenas.getSelectedIndex();
-                projects.get(sex).getActividades().get(pos2).getActividades_sucesoras().get(pos24).setDuracion(pos22);
-                JOptionPane.showMessageDialog(this, "Duracion de "+actividad_seleccionado.getNombre()+" modificada Correcamnete");
+                DefaultMutableTreeNode m=((DefaultMutableTreeNode) raiz.getChildAt(0).getChildAt(pos2).getChildAt(1).getChildAt(pos24));
+                modelo.removeNodeFromParent(m);
+                 JOptionPane.showMessageDialog(this, "Nodo Eliminado Correctamente");
             } else {
                 JOptionPane.showMessageDialog(this, "Dato no Valido!");
             }
