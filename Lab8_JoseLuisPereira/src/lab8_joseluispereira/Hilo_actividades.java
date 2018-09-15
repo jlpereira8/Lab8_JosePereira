@@ -15,7 +15,7 @@ public class Hilo_actividades extends Thread{
     private String prioridad;
     private int duracion;
 
-    public Hilo_actividades(String prioridad, int duracion) {
+    public Hilo_actividades( int duracion) {
         t = true;
         s = true;
         this.prioridad = prioridad;
@@ -56,7 +56,12 @@ public class Hilo_actividades extends Thread{
     int c=0;
     @Override
     public void run(){
-        while (t) {            
+        while (t) {
+            try {
+                Thread.sleep(1000);
+                duracion=duracion-1000;
+            } catch (InterruptedException e) {
+            }            
             if (s) {
                 c++;
                 System.out.println(c);
@@ -64,11 +69,7 @@ public class Hilo_actividades extends Thread{
             if (duracion<=0) {
                 t=false;
             }
-            try {
-                Thread.sleep(1000);
-                duracion=duracion-1000;
-            } catch (InterruptedException e) {
-            }
+            
         }
     }
     

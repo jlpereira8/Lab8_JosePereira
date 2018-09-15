@@ -845,8 +845,22 @@ public class princi extends javax.swing.JFrame {
         // TODO add your handling code here:
         int pos=wombo_hilo.getSelectedIndex();
         int t=0;
-        Actividades f=projects.get(pos).getActividades().get(0);
-        System.out.println(f);
+        for (int i = 0; i < projects.get(pos).getActividades().size(); i++) {
+            ArrayList<Actividades>ordenadas=new ArrayList<>();
+            ordenadas.add(projects.get(pos).getActividades().get(i));
+            for (int j = 0; j < projects.get(pos).getActividades().get(i).getActividades_predecesoras().size(); j++) {
+                ordenadas.add(projects.get(pos).getActividades().get(i).getActividades_predecesoras().get(j));
+            }
+            for (int j = 0; j < projects.get(pos).getActividades().get(i).getActividades_sucesoras().size(); j++) {
+                ordenadas.add(projects.get(pos).getActividades().get(i).getActividades_sucesoras().get(j));
+            }
+            for (int j = 0; j < ordenadas.size(); j++) {
+                int lenght=ordenadas.get(j).getDuracion()*1000;
+                hilo_actividad=new Hilo_actividades(lenght);
+                hilo_actividad.start();
+            }
+            
+        }
         if (pos>=0) {
             
         }
@@ -944,5 +958,5 @@ public class princi extends javax.swing.JFrame {
     Projectos temp;
     Actividades actividad_seleccionado;
     int index = 0;
-     Hilo_actividades hilo;
+     Hilo_actividades hilo_actividad;
 }
