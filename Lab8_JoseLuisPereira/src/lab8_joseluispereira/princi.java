@@ -706,7 +706,7 @@ public class princi extends javax.swing.JFrame {
         temp = (Projectos) olawenas.getSelectedItem();
         if (temp != null) {
             DefaultComboBoxModel m = (DefaultComboBoxModel) olawenas.getModel();
-            index=olawenas.getSelectedIndex();
+            index = olawenas.getSelectedIndex();
             for (int i = 0; i < 1; i++) {
                 DefaultMutableTreeNode projecto = new DefaultMutableTreeNode(temp.getNombre());
                 for (int j = 0; j < temp.getActividades().size(); j++) {
@@ -758,18 +758,30 @@ public class princi extends javax.swing.JFrame {
                     }
 
                 }
-                System.out.println("maynor "+mayor);
+                System.out.println("maynor " + mayor);
                 actividad_seleccionado.setInicio_temprano(mayor + 1);
                 actividad_seleccionado.setFinal_temprano(actividad_seleccionado.getInicio_temprano() + actividad_seleccionado.getDuracion());
                 actividades_principales.remove(index);
                 actividades_principales.add(actividad_seleccionado);
             }
             System.out.println("Duracion " + actividad_seleccionado.getDuracion());
-        System.out.println("Inicio temprano " + actividad_seleccionado.getInicio_temprano());
-        System.out.println("Final temprano " + actividad_seleccionado.getFinal_temprano());
+            System.out.println("Inicio temprano " + actividad_seleccionado.getInicio_temprano());
+            System.out.println("Final temprano " + actividad_seleccionado.getFinal_temprano());
             System.out.println(actividades_principales);
+        } else if (pos == 2) {
+            String p = JOptionPane.showInputDialog(this, "Ingrese la posicion de la actividad que desea modificar");
+            int pos2 = Integer.parseInt(p);
+            actividad_seleccionado = ((Actividades) ((DefaultMutableTreeNode) raiz.getChildAt(0).getChildAt(0).getChildAt(0).getChildAt(pos2)).getUserObject());
+            String p2 = JOptionPane.showInputDialog(this, "Ingrese la nueva Duracion de la actividad PREDECESORA");
+            int pos22 = Integer.parseInt(p2);
+            actividad_seleccionado.setDuracion(pos22);
         } else if (pos == 3) {
-
+            String p = JOptionPane.showInputDialog(this, "Ingrese la posicion de la actividad que desea modificar");
+            int pos2 = Integer.parseInt(p);
+            actividad_seleccionado = ((Actividades) ((DefaultMutableTreeNode) raiz.getChildAt(0).getChildAt(0).getChildAt(1).getChildAt(pos2)).getUserObject());
+            String p2 = JOptionPane.showInputDialog(this, "Ingrese la nueva Duracion de la actividad SUCESORA");
+            int pos22 = Integer.parseInt(p2);
+            actividad_seleccionado.setDuracion(pos22);
         } else {
             JOptionPane.showMessageDialog(this, "Dato no Valido!");
         }
@@ -861,5 +873,5 @@ public class princi extends javax.swing.JFrame {
     ArrayList<Actividades> actividades_predecesoras = new ArrayList();
     Projectos temp;
     Actividades actividad_seleccionado;
-    int index=0;
+    int index = 0;
 }
