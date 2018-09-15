@@ -419,6 +419,11 @@ public class princi extends javax.swing.JFrame {
         jScrollPane4.setViewportView(jTable1);
 
         jButton4.setText("Ejecutar");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel17.setText("Ejecutar Actividades");
@@ -602,7 +607,7 @@ public class princi extends javax.swing.JFrame {
             modelo.addColumn("Duracion");
             modelo.addColumn("Final Temprano");
             modelo.addColumn("Retraso");
-            modelo.addColumn("Estado");
+          //  modelo.addColumn("Estado");
             jTable1.setModel(modelo);
             
                 
@@ -836,6 +841,17 @@ public class princi extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton7MouseClicked
 
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // TODO add your handling code here:
+        int pos=wombo_hilo.getSelectedIndex();
+        int t=0;
+        Actividades f=projects.get(pos).getActividades().get(0);
+        System.out.println(f);
+        if (pos>=0) {
+            
+        }
+    }//GEN-LAST:event_jButton4MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -928,4 +944,5 @@ public class princi extends javax.swing.JFrame {
     Projectos temp;
     Actividades actividad_seleccionado;
     int index = 0;
+     Hilo_actividades hilo;
 }
