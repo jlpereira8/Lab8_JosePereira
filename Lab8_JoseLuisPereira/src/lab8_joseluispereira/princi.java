@@ -58,17 +58,24 @@ public class princi extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jl_sucesoras = new javax.swing.JList<>();
         jButton3 = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jt_activs = new javax.swing.JTree();
         actividad_predecesoras = new javax.swing.JComboBox<>();
         jButton4 = new javax.swing.JButton();
-        trrs = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jl_predecesoras = new javax.swing.JList<>();
+        jLabel13 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jt_activs = new javax.swing.JTree();
+        olawenas = new javax.swing.JComboBox<>();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,7 +94,11 @@ public class princi extends javax.swing.JFrame {
 
         jLabel3.setText("Posibilidad de Retraso :");
 
+        sp_posibilidad_retraso.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+
         jLabel4.setText("Duracion :");
+
+        sp_duracion.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setText("Crear Projecto");
@@ -110,7 +121,7 @@ public class princi extends javax.swing.JFrame {
 
         jLabel9.setText("Projecto");
 
-        wombo_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Predecesora", "Sucesora" }));
+        wombo_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Principal", "Predecesora", "Sucesora" }));
 
         jLabel11.setText("Tipo");
 
@@ -118,12 +129,6 @@ public class princi extends javax.swing.JFrame {
         uno.setLayout(unoLayout);
         unoLayout.setHorizontalGroup(
             unoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(unoLayout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(70, 70, 70))
             .addGroup(unoLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -149,11 +154,17 @@ public class princi extends javax.swing.JFrame {
                             .addComponent(sp_posibilidad_retraso, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(sp_duracion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(wombo_tipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                         .addComponent(jLabel6)
                         .addGap(18, 18, 18)
                         .addComponent(tf_nombre_projecto, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, unoLayout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(70, 70, 70))
         );
         unoLayout.setVerticalGroup(
             unoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,7 +195,7 @@ public class princi extends javax.swing.JFrame {
                 .addGroup(unoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(wombo_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 243, Short.MAX_VALUE)
                 .addGroup(unoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton1))
@@ -200,7 +211,7 @@ public class princi extends javax.swing.JFrame {
         });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel8.setText("Seleccione la actividad Sucesora");
+        jLabel8.setText("Seleccione la actividad");
 
         jl_sucesoras.setModel(new DefaultListModel());
         jScrollPane2.setViewportView(jl_sucesoras);
@@ -212,16 +223,39 @@ public class princi extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Projectos");
-        jt_activs.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jScrollPane3.setViewportView(jt_activs);
-
         jButton4.setText("ola wenas");
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton4MouseClicked(evt);
             }
         });
+
+        jLabel7.setText("Projecto");
+
+        jLabel10.setText("Principal");
+
+        jLabel12.setText("Sucesora");
+
+        jl_predecesoras.setModel(new DefaultListModel());
+        jScrollPane1.setViewportView(jl_predecesoras);
+
+        jLabel13.setText("Predecesora");
+
+        jButton5.setText("Agregar");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
+
+        jButton6.setText("Finalizar");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
+
+        jLabel14.setText("Calcular atributos");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -231,103 +265,163 @@ public class princi extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(actividad_predecesoras, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(actividad_predecesoras, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(112, 112, 112)
-                                .addComponent(jButton3))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(129, 129, 129)
-                                .addComponent(jLabel8)))
-                        .addGap(0, 147, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(projectos, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(129, 129, 129)
+                        .addComponent(jLabel8))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(projectos, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel7))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel10)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton4)
                 .addGap(113, 113, 113))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(106, 106, 106)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(74, 74, 74)
+                .addComponent(jButton5)
+                .addGap(224, 224, 224))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(326, 326, 326)
+                        .addComponent(jButton6))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
+                        .addGap(54, 54, 54))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addComponent(jButton4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
+                        .addComponent(jLabel7)
                         .addGap(18, 18, 18)
                         .addComponent(projectos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel10)
+                        .addGap(18, 18, 18)
                         .addComponent(actividad_predecesoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton4)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton3)
+                            .addComponent(jButton5))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton6))))
         );
 
         jtap.addTab("Añadir Actividades ", jPanel1);
 
-        trrs.setBorder(new javax.swing.border.MatteBorder(null));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        jLabel10.setText("Añadir Actividades");
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Projectos");
+        jt_activs.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jt_activs.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_activsMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(jt_activs);
 
-        jLabel7.setText("Nombre del projecto:");
+        olawenas.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                olawenasItemStateChanged(evt);
+            }
+        });
+        olawenas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                olawenasMouseClicked(evt);
+            }
+        });
 
-        jList1.setModel(new DefaultListModel());
-        jScrollPane1.setViewportView(jList1);
+        jLabel15.setText("Projectos");
 
-        jButton5.setText("Añadir actividad");
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel16.setText("Visualizar Projectos");
 
-        javax.swing.GroupLayout trrsLayout = new javax.swing.GroupLayout(trrs);
-        trrs.setLayout(trrsLayout);
-        trrsLayout.setHorizontalGroup(
-            trrsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(trrsLayout.createSequentialGroup()
-                .addGroup(trrsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(trrsLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(trrsLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(trrsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(trrsLayout.createSequentialGroup()
-                                .addComponent(jLabel7)
+        jButton7.setText("Modificar");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jScrollPane3))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel15)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(trrsLayout.createSequentialGroup()
-                                .addGap(86, 86, 86)
-                                .addComponent(jButton5)))))
-                .addContainerGap(474, Short.MAX_VALUE))
+                                .addComponent(olawenas, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(244, 244, 244)
+                                .addComponent(jLabel16))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(336, 336, 336)
+                                .addComponent(jButton7)))
+                        .addGap(0, 239, Short.MAX_VALUE)))
+                .addContainerGap())
         );
-        trrsLayout.setVerticalGroup(
-            trrsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(trrsLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel10)
-                .addGap(36, 36, 36)
-                .addGroup(trrsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton5)
-                .addContainerGap(63, Short.MAX_VALUE))
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(olawenas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
+                .addGap(35, 35, 35)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(jButton7)
+                .addContainerGap())
         );
 
-        jtap.addTab("Añadir Actividad a Projecto", trrs);
+        jtap.addTab("Projectos Creados", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -364,14 +458,14 @@ public class princi extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Hubo un error al crear la Actividad");
             }
 
-        } else {
+        } else if (f.equals("Principal")) {
             try {
                 String s = wombo_projecto.getSelectedItem().toString();
                 if (s.length() > 0) {
                     String nombre = tf_nombre.getText();
                     int duracion = (int) sp_duracion.getValue();
                     int posibilidad = (int) sp_posibilidad_retraso.getValue();
-                    actividades_predecesoras.add(new Actividades(nombre, duracion, posibilidad, f));
+                    actividades_principales.add(new Actividades(nombre, duracion, posibilidad, f));
                     int pos = -1;
                     for (int i = 0; i < projects.size(); i++) {
                         if (projects.get(i).getNombre().equals(s)) {
@@ -380,9 +474,11 @@ public class princi extends javax.swing.JFrame {
                     }
                     Actividades sexo = new Actividades(nombre, duracion, posibilidad, f);
                     ArrayList<Actividades> ola = new ArrayList<>();
+                    ArrayList<Actividades> ola2 = new ArrayList<>();
                     sexo.setActividades_sucesoras(ola);
+                    sexo.setActividades_predecesoras(ola2);
                     projects.get(pos).getActividades().add(sexo);
-                    JOptionPane.showMessageDialog(this, "Actividad Predecesora creada Correctamente");
+                    JOptionPane.showMessageDialog(this, "Actividad Principal creada Correctamente");
                 }
 
             } catch (Exception e) {
@@ -390,6 +486,17 @@ public class princi extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Hubo un error al crear la Actividad");
             }
 
+        } else {
+            try {
+                String nombre = tf_nombre.getText();
+                int duracion = (int) sp_duracion.getValue();
+                int posibilidad = (int) sp_posibilidad_retraso.getValue();
+                actividades_predecesoras.add(new Actividades(nombre, duracion, posibilidad, f));
+                JOptionPane.showMessageDialog(this, "Actividad Predecesora creada Correctamente");
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Hubo un error al crear la Actividad");
+            }
         }
 
     }//GEN-LAST:event_jButton1MouseClicked
@@ -403,7 +510,10 @@ public class princi extends javax.swing.JFrame {
             }
         }
         if (auz == 0) {
-            projects.add(new Projectos(nombre));
+            Projectos p = new Projectos(nombre);
+            ArrayList<Actividades> ola = new ArrayList<>();
+            p.setActividades(ola);
+            projects.add(p);
             DefaultComboBoxModel m = (DefaultComboBoxModel) wombo_projecto.getModel();
             m.addElement(new Projectos(nombre));
             wombo_projecto.setModel(m);
@@ -416,37 +526,68 @@ public class princi extends javax.swing.JFrame {
     private void jtapStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jtapStateChanged
         // TODO add your handling code here:
         if (jtap.getSelectedIndex() == 1) {
-            System.out.println("ola");
             DefaultComboBoxModel m = (DefaultComboBoxModel) wombo_projecto.getModel();
             DefaultComboBoxModel m2 = (DefaultComboBoxModel) projectos.getModel();
+            DefaultComboBoxModel m23 = (DefaultComboBoxModel) olawenas.getModel();
             m2.removeAllElements();
             m.removeAllElements();
+            m23.removeAllElements();
             for (int i = 0; i < projects.size(); i++) {
                 m.addElement(projects.get(i));
                 m2.addElement(projects.get(i));
+                m23.addElement(projects.get(i));
             }
+            olawenas.setModel(m23);
             projectos.setModel(m2);
             wombo_projecto.setModel(m);
 
             DefaultListModel modelolista = (DefaultListModel) jl_sucesoras.getModel();
             modelolista.removeAllElements();
+
+            DefaultListModel modelolista2 = (DefaultListModel) jl_predecesoras.getModel();
+            modelolista2.removeAllElements();
             for (int i = 0; i < actividades_sucesoras.size(); i++) {
                 modelolista.addElement(actividades_sucesoras.get(i));
+
             }
+            for (int i = 0; i < actividades_predecesoras.size(); i++) {
+                modelolista2.addElement(actividades_predecesoras.get(i));
+            }
+            jl_predecesoras.setModel(modelolista2);
             jl_sucesoras.setModel(modelolista);
         }
-        DefaultTreeModel modelo = (DefaultTreeModel) jt_activs.getModel();//porque el ()
-        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelo.getRoot();
-        for (int i = 0; i < projects.size(); i++) {
-            DefaultMutableTreeNode projecto = new DefaultMutableTreeNode(projects.get(i));
+        /* DefaultTreeModel modelo = (DefaultTreeModel) jt_activs.getModel();//porque el ()
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelo.getRoot();
+            raiz.removeAllChildren();
+            for (int i = 0; i < projects.size(); i++) {
+                DefaultMutableTreeNode projecto = new DefaultMutableTreeNode(projects.get(i));
+                for (int j = 0; j < projects.get(i).getActividades().size(); j++) {
+                    DefaultMutableTreeNode principal = new DefaultMutableTreeNode(projects.get(i).getActividades().get(j));
+                    DefaultMutableTreeNode prede = new DefaultMutableTreeNode("Predecesoras");
+                    DefaultMutableTreeNode susesoras = new DefaultMutableTreeNode("Susesoras");
+                    for (int k = 0; k < projects.get(i).getActividades().get(j).getActividades_sucesoras().size(); k++) {
+                        susesoras.add(new DefaultMutableTreeNode(projects.get(i).getActividades().get(j).getActividades_sucesoras().get(k)));
+                    }
+                    for (int k2 = 0; k2 < projects.get(i).getActividades().get(j).getActividades_predecesoras().size(); k2++) {
+                        prede.add(new DefaultMutableTreeNode(projects.get(i).getActividades().get(j).getActividades_predecesoras().get(k2)));
+                    }
+                    principal.add(prede);
+                    principal.add(susesoras);
+                    projecto.add(principal);
+                }
+                raiz.add(projecto);
 
-        }
-        modelo.reload();
+            }
+            modelo.reload();
+         */
+
+
     }//GEN-LAST:event_jtapStateChanged
 
     private void projectosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_projectosItemStateChanged
         // TODO add your handling code here:
         temp = (Projectos) projectos.getSelectedItem();
+
         if (temp != null) {
             DefaultComboBoxModel m = (DefaultComboBoxModel) actividad_predecesoras.getModel();
             m.removeAllElements();
@@ -463,33 +604,176 @@ public class princi extends javax.swing.JFrame {
             DefaultListModel modeloLISTA = (DefaultListModel) jl_sucesoras.getModel();
             DefaultComboBoxModel m = (DefaultComboBoxModel) actividad_predecesoras.getModel();
             DefaultComboBoxModel m2 = (DefaultComboBoxModel) projectos.getModel();
-            String prede = m.getSelectedItem().toString();
-            String project = m2.getSelectedItem().toString();
-            int pos1 = -1;
-            int pos2 = -2;
-            for (int i = 0; i < projects.size(); i++) {
-                if (projects.get(i).getNombre().equals(project)) {
-                    pos1 = i;
+            if (m.getSelectedItem() != null) {
+                String prede = m.getSelectedItem().toString();
+                String project = m2.getSelectedItem().toString();
+                int pos1 = -1;
+                int pos2 = -2;
+                for (int i = 0; i < projects.size(); i++) {
+                    if (projects.get(i).getNombre().equals(project)) {
+                        pos1 = i;
+                    }
                 }
-            }
-            for (int i = 0; i < temp.getActividades().size(); i++) {
-                if (temp.getActividades().get(i).getNombre().equals(prede)) {
-                    pos2 = i;
+                for (int i = 0; i < temp.getActividades().size(); i++) {
+                    if (temp.getActividades().get(i).getNombre().equals(prede)) {
+                        pos2 = i;
+                    }
                 }
+                Actividades a = ((Actividades) modeloLISTA.get(jl_sucesoras.getSelectedIndex()));
+                System.out.println(temp.getActividades().get(pos2));
+                temp.getActividades().get(pos2).getActividades_sucesoras().add(a);
+                JOptionPane.showMessageDialog(this, "Actividad Sucesora Agregada Correctamente");
+            } else {
+                JOptionPane.showMessageDialog(this, "Porfavor Seleccione algo");
             }
-            Actividades a = ((Actividades) modeloLISTA.get(jl_sucesoras.getSelectedIndex()));
-            System.out.println(temp.getActividades().get(pos2));
-            temp.getActividades().get(pos2).getActividades_sucesoras().add(a);
-
         }
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
         System.out.println("Projecto " + projects.get(0));
-        System.out.println("Actividades Predecesoras " + projects.get(0).getActividades());
+        System.out.println("Actividades Principales " + projects.get(0).getActividades());
         System.out.println("Actividades Sucesoras " + projects.get(0).getActividades().get(0).getActividades_sucesoras());
+        System.out.println("Actividades Predecesoras " + projects.get(0).getActividades().get(0).getActividades_predecesoras());
     }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        // TODO add your handling code here:
+        if (jl_predecesoras.getSelectedIndex() >= 0) {// verificar si teiene una persona seleccionada
+            DefaultListModel modeloLISTA = (DefaultListModel) jl_predecesoras.getModel();
+            DefaultComboBoxModel m = (DefaultComboBoxModel) actividad_predecesoras.getModel();
+            DefaultComboBoxModel m2 = (DefaultComboBoxModel) projectos.getModel();
+            if (m.getSelectedItem() != null) {
+                String prede = m.getSelectedItem().toString();
+                String project = m2.getSelectedItem().toString();
+                int pos1 = -1;
+                int pos2 = -2;
+                for (int i = 0; i < projects.size(); i++) {
+                    if (projects.get(i).getNombre().equals(project)) {
+                        pos1 = i;
+                    }
+                }
+                for (int i = 0; i < temp.getActividades().size(); i++) {
+                    if (temp.getActividades().get(i).getNombre().equals(prede)) {
+                        pos2 = i;
+                    }
+                }
+                Actividades a = ((Actividades) modeloLISTA.get(jl_predecesoras.getSelectedIndex()));
+                System.out.println(temp.getActividades().get(pos2));
+                temp.getActividades().get(pos2).getActividades_predecesoras().add(a);
+                JOptionPane.showMessageDialog(this, "Actividad Predecesora Agregada Correctamente");
+            } else {
+                JOptionPane.showMessageDialog(this, "Porfavor Seleccione algo");
+            }
+        }
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        // TODO add your handling code here:
+        DefaultComboBoxModel m2 = (DefaultComboBoxModel) actividad_predecesoras.getModel();
+        Actividades ac = ((Actividades) m2.getSelectedItem());
+        if (ac.getActividades_predecesoras().isEmpty()) {
+            ac.setInicio_temprano(1);
+            ac.setFinal_temprano(ac.getInicio_temprano() + ac.getDuracion());
+        } else {
+            int mayor = -1;
+            for (int i = 0; i < ac.getActividades_predecesoras().size(); i++) {
+                for (int j = 0; j < ac.getActividades_predecesoras().size(); j++) {
+                    if (ac.getActividades_predecesoras().get(i).getPosibilidad_retraso() > ac.getActividades_predecesoras().get(j).getPosibilidad_retraso()) {
+                        mayor = ac.getActividades_predecesoras().get(i).getPosibilidad_retraso();
+                    }
+                }
+
+            }
+            System.out.println(mayor);
+            ac.setInicio_temprano(mayor + 1);
+            ac.setFinal_temprano(ac.getInicio_temprano() + ac.getDuracion());
+        }
+        System.out.println("Duracion " + ac.getDuracion());
+        System.out.println("Inicio temprano " + ac.getInicio_temprano());
+        System.out.println("Final temprano " + ac.getFinal_temprano());
+    }//GEN-LAST:event_jButton6MouseClicked
+
+    private void olawenasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_olawenasMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_olawenasMouseClicked
+
+    private void olawenasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_olawenasItemStateChanged
+        // TODO add your handling code here:
+        DefaultTreeModel modelo = (DefaultTreeModel) jt_activs.getModel();//porque el ()
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelo.getRoot();
+        raiz.removeAllChildren();
+        temp = (Projectos) olawenas.getSelectedItem();
+        if (temp != null) {
+            DefaultComboBoxModel m = (DefaultComboBoxModel) olawenas.getModel();
+            index=olawenas.getSelectedIndex();
+            for (int i = 0; i < 1; i++) {
+                DefaultMutableTreeNode projecto = new DefaultMutableTreeNode(temp.getNombre());
+                for (int j = 0; j < temp.getActividades().size(); j++) {
+                    DefaultMutableTreeNode principal = new DefaultMutableTreeNode(temp.getActividades().get(j));
+                    DefaultMutableTreeNode prede = new DefaultMutableTreeNode("Predecesoras");
+                    DefaultMutableTreeNode susesoras = new DefaultMutableTreeNode("Susesoras");
+                    for (int k = 0; k < temp.getActividades().get(j).getActividades_sucesoras().size(); k++) {
+                        susesoras.add(new DefaultMutableTreeNode(temp.getActividades().get(j).getActividades_sucesoras().get(k)));
+                    }
+                    for (int k2 = 0; k2 < temp.getActividades().get(j).getActividades_predecesoras().size(); k2++) {
+                        prede.add(new DefaultMutableTreeNode(temp.getActividades().get(j).getActividades_predecesoras().get(k2)));
+                    }
+                    principal.add(prede);
+                    principal.add(susesoras);
+                    projecto.add(principal);
+                }
+                raiz.add(projecto);
+
+            }
+            modelo.reload();
+        }
+    }//GEN-LAST:event_olawenasItemStateChanged
+
+    private void jt_activsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_activsMouseClicked
+
+    }//GEN-LAST:event_jt_activsMouseClicked
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        // TODO add your handling code here:
+        DefaultTreeModel modelo = (DefaultTreeModel) jt_activs.getModel();//porque el ()
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelo.getRoot();
+        String o = JOptionPane.showInputDialog(this, "Que desea modificar ?\n1) Actividad principal\n2) Actividades Predecesoras\n3) Actividades Sucesoras ");
+        int pos = Integer.parseInt(o);
+        if (pos == 1) {
+            String p = JOptionPane.showInputDialog(this, "Ingrese la nueva duracion de la Actividad Principal");
+            int pos2 = Integer.parseInt(p);
+            actividad_seleccionado = ((Actividades) ((DefaultMutableTreeNode) raiz.getChildAt(0).getChildAt(0)).getUserObject());
+            actividad_seleccionado.setDuracion(pos2);
+            if (actividad_seleccionado.getActividades_predecesoras().isEmpty()) {
+                actividad_seleccionado.setInicio_temprano(1);
+                actividad_seleccionado.setFinal_temprano(actividad_seleccionado.getInicio_temprano() + actividad_seleccionado.getDuracion());
+            } else {
+                int mayor = actividad_seleccionado.getActividades_predecesoras().get(0).getPosibilidad_retraso();
+                for (int i = 0; i < actividad_seleccionado.getActividades_predecesoras().size(); i++) {
+                    for (int j = 0; j < actividad_seleccionado.getActividades_predecesoras().size(); j++) {
+                        if (actividad_seleccionado.getActividades_predecesoras().get(i).getPosibilidad_retraso() > actividad_seleccionado.getActividades_predecesoras().get(j).getPosibilidad_retraso()) {
+                            mayor = actividad_seleccionado.getActividades_predecesoras().get(i).getPosibilidad_retraso();
+                        }
+                    }
+
+                }
+                System.out.println("maynor "+mayor);
+                actividad_seleccionado.setInicio_temprano(mayor + 1);
+                actividad_seleccionado.setFinal_temprano(actividad_seleccionado.getInicio_temprano() + actividad_seleccionado.getDuracion());
+                actividades_principales.remove(index);
+                actividades_principales.add(actividad_seleccionado);
+            }
+            System.out.println("Duracion " + actividad_seleccionado.getDuracion());
+        System.out.println("Inicio temprano " + actividad_seleccionado.getInicio_temprano());
+        System.out.println("Final temprano " + actividad_seleccionado.getFinal_temprano());
+            System.out.println(actividades_principales);
+        } else if (pos == 3) {
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Dato no Valido!");
+        }
+    }//GEN-LAST:event_jButton7MouseClicked
 
     /**
      * @param args the command line arguments
@@ -533,10 +817,16 @@ public class princi extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -545,27 +835,31 @@ public class princi extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JList<String> jl_predecesoras;
     private javax.swing.JList<String> jl_sucesoras;
     private javax.swing.JTree jt_activs;
     private javax.swing.JTabbedPane jtap;
+    private javax.swing.JComboBox<String> olawenas;
     private javax.swing.JComboBox<String> projectos;
     private javax.swing.JSpinner sp_duracion;
     private javax.swing.JSpinner sp_posibilidad_retraso;
     private javax.swing.JTextField tf_nombre;
     private javax.swing.JTextField tf_nombre_projecto;
-    private javax.swing.JPanel trrs;
     private javax.swing.JPanel uno;
     private javax.swing.JComboBox<String> wombo_projecto;
     private javax.swing.JComboBox<String> wombo_tipo;
     // End of variables declaration//GEN-END:variables
-
+    DefaultMutableTreeNode nodo_seleccionado2;
     ArrayList<Projectos> projects = new ArrayList();
-    ArrayList<Actividades> actividades_predecesoras = new ArrayList();
+    ArrayList<Actividades> actividades_principales = new ArrayList();
     ArrayList<Actividades> actividades_sucesoras = new ArrayList();
+    ArrayList<Actividades> actividades_predecesoras = new ArrayList();
     Projectos temp;
+    Actividades actividad_seleccionado;
+    int index=0;
 }
