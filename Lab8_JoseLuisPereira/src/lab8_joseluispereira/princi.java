@@ -570,7 +570,7 @@ public class princi extends javax.swing.JFrame {
             DefaultComboBoxModel m = (DefaultComboBoxModel) wombo_projecto.getModel();
             DefaultComboBoxModel m2 = (DefaultComboBoxModel) projectos.getModel();
             DefaultComboBoxModel m23 = (DefaultComboBoxModel) olawenas.getModel();
-             DefaultComboBoxModel m233 = (DefaultComboBoxModel) wombo_hilo.getModel();
+            DefaultComboBoxModel m233 = (DefaultComboBoxModel) wombo_hilo.getModel();
             m2.removeAllElements();
             m.removeAllElements();
             m23.removeAllElements();
@@ -607,13 +607,10 @@ public class princi extends javax.swing.JFrame {
             modelo.addColumn("Duracion");
             modelo.addColumn("Final Temprano");
             modelo.addColumn("Retraso");
-          //  modelo.addColumn("Estado");
+            //  modelo.addColumn("Estado");
             jTable1.setModel(modelo);
-            
-                
-          
-            
-        /* DefaultTreeModel modelo = (DefaultTreeModel) jt_activs.getModel();//porque el ()
+
+            /* DefaultTreeModel modelo = (DefaultTreeModel) jt_activs.getModel();//porque el ()
             DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelo.getRoot();
             raiz.removeAllChildren();
             for (int i = 0; i < projects.size(); i++) {
@@ -636,8 +633,7 @@ public class princi extends javax.swing.JFrame {
 
             }
             modelo.reload();
-         */
-
+             */
         }
     }//GEN-LAST:event_jtapStateChanged
 
@@ -822,17 +818,24 @@ public class princi extends javax.swing.JFrame {
             } else if (pos == 2) {
                 String p = JOptionPane.showInputDialog(this, "Ingrese la posicion de la actividad que desea modificar");
                 int pos2 = Integer.parseInt(p);
-                actividad_seleccionado = ((Actividades) ((DefaultMutableTreeNode) raiz.getChildAt(0).getChildAt(0).getChildAt(0).getChildAt(pos2)).getUserObject());
+                String p4 = JOptionPane.showInputDialog(this, "Ingrese la posicion de la Predecesora que desea modificar");
+                int pos24 = Integer.parseInt(p4);
+                actividad_seleccionado = ((Actividades) ((DefaultMutableTreeNode) raiz.getChildAt(0).getChildAt(pos2).getChildAt(0).getChildAt(pos24)).getUserObject());
                 String p2 = JOptionPane.showInputDialog(this, "Ingrese la nueva Duracion de la actividad PREDECESORA");
                 int pos22 = Integer.parseInt(p2);
                 actividad_seleccionado.setDuracion(pos22);
+                int sex=olawenas.getSelectedIndex();
+                System.out.println("nodo "+actividad_seleccionado);
             } else if (pos == 3) {
                 String p = JOptionPane.showInputDialog(this, "Ingrese la posicion de la actividad que desea modificar");
                 int pos2 = Integer.parseInt(p);
-                actividad_seleccionado = ((Actividades) ((DefaultMutableTreeNode) raiz.getChildAt(0).getChildAt(0).getChildAt(1).getChildAt(pos2)).getUserObject());
+                String p4 = JOptionPane.showInputDialog(this, "Ingrese la posicion de la sucesora que desea modificar");
+                int pos24 = Integer.parseInt(p4);
+                actividad_seleccionado = ((Actividades) ((DefaultMutableTreeNode) raiz.getChildAt(0).getChildAt(pos2).getChildAt(pos24)).getUserObject());                       
                 String p2 = JOptionPane.showInputDialog(this, "Ingrese la nueva Duracion de la actividad SUCESORA");
                 int pos22 = Integer.parseInt(p2);
                 actividad_seleccionado.setDuracion(pos22);
+                System.out.println("nodo "+actividad_seleccionado);
             } else {
                 JOptionPane.showMessageDialog(this, "Dato no Valido!");
             }
@@ -843,10 +846,12 @@ public class princi extends javax.swing.JFrame {
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
-        int pos=wombo_hilo.getSelectedIndex();
-        int t=0;
+        System.out.println("EJECUTA");
+        int pos = wombo_hilo.getSelectedIndex();
+        int t = 0;
+        ArrayList<Actividades> ordenadas = new ArrayList<>();
         for (int i = 0; i < projects.get(pos).getActividades().size(); i++) {
-            ArrayList<Actividades>ordenadas=new ArrayList<>();
+
             ordenadas.add(projects.get(pos).getActividades().get(i));
             for (int j = 0; j < projects.get(pos).getActividades().get(i).getActividades_predecesoras().size(); j++) {
                 ordenadas.add(projects.get(pos).getActividades().get(i).getActividades_predecesoras().get(j));
@@ -854,15 +859,14 @@ public class princi extends javax.swing.JFrame {
             for (int j = 0; j < projects.get(pos).getActividades().get(i).getActividades_sucesoras().size(); j++) {
                 ordenadas.add(projects.get(pos).getActividades().get(i).getActividades_sucesoras().get(j));
             }
-            for (int j = 0; j < ordenadas.size(); j++) {
-                int lenght=ordenadas.get(j).getDuracion()*1000;
-                hilo_actividad=new Hilo_actividades(lenght);
-                hilo_actividad.start();
-            }
-            
         }
-        if (pos>=0) {
-            
+        hilo_actividad = new Hilo_actividades();
+        hilo_actividad.setLista(ordenadas);
+        hilo_actividad.setTabla(jTable1);
+        hilo_actividad.start();
+
+        if (pos >= 0) {
+
         }
     }//GEN-LAST:event_jButton4MouseClicked
 
@@ -958,5 +962,5 @@ public class princi extends javax.swing.JFrame {
     Projectos temp;
     Actividades actividad_seleccionado;
     int index = 0;
-     Hilo_actividades hilo_actividad;
+    Hilo_actividades hilo_actividad;
 }
