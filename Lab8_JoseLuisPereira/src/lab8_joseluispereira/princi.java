@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
@@ -59,7 +60,6 @@ public class princi extends javax.swing.JFrame {
         jl_sucesoras = new javax.swing.JList<>();
         jButton3 = new javax.swing.JButton();
         actividad_predecesoras = new javax.swing.JComboBox<>();
-        jButton4 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -76,6 +76,12 @@ public class princi extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButton4 = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        wombo_hilo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -223,13 +229,6 @@ public class princi extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("ola wenas");
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
-            }
-        });
-
         jLabel7.setText("Projecto");
 
         jLabel10.setText("Principal");
@@ -279,10 +278,6 @@ public class princi extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel10)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton4)
-                .addGap(113, 113, 113))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(106, 106, 106)
                 .addComponent(jButton3)
@@ -311,9 +306,7 @@ public class princi extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(jButton4))
+                .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -423,6 +416,49 @@ public class princi extends javax.swing.JFrame {
 
         jtap.addTab("Projectos Creados", jPanel2);
 
+        jScrollPane4.setViewportView(jTable1);
+
+        jButton4.setText("Ejecutar");
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel17.setText("Ejecutar Actividades");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 771, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(332, 332, 332)
+                        .addComponent(jButton4))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(281, 281, 281)
+                        .addComponent(jLabel17))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(wombo_hilo, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel17)
+                .addGap(18, 18, 18)
+                .addComponent(wombo_hilo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addContainerGap())
+        );
+
+        jtap.addTab("Ejecutar Actividad", jPanel3);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -529,17 +565,21 @@ public class princi extends javax.swing.JFrame {
             DefaultComboBoxModel m = (DefaultComboBoxModel) wombo_projecto.getModel();
             DefaultComboBoxModel m2 = (DefaultComboBoxModel) projectos.getModel();
             DefaultComboBoxModel m23 = (DefaultComboBoxModel) olawenas.getModel();
+             DefaultComboBoxModel m233 = (DefaultComboBoxModel) wombo_hilo.getModel();
             m2.removeAllElements();
             m.removeAllElements();
             m23.removeAllElements();
+            m233.removeAllElements();
             for (int i = 0; i < projects.size(); i++) {
                 m.addElement(projects.get(i));
                 m2.addElement(projects.get(i));
                 m23.addElement(projects.get(i));
+                m233.addElement(projects.get(i));
             }
             olawenas.setModel(m23);
             projectos.setModel(m2);
             wombo_projecto.setModel(m);
+            wombo_hilo.setModel(m233);
 
             DefaultListModel modelolista = (DefaultListModel) jl_sucesoras.getModel();
             modelolista.removeAllElements();
@@ -555,7 +595,19 @@ public class princi extends javax.swing.JFrame {
             }
             jl_predecesoras.setModel(modelolista2);
             jl_sucesoras.setModel(modelolista);
-        }
+        } else if (jtap.getSelectedIndex() == 3) {
+            DefaultTableModel modelo = new DefaultTableModel();
+            modelo.addColumn("Nombre");
+            modelo.addColumn("Inicio Temprano");
+            modelo.addColumn("Duracion");
+            modelo.addColumn("Final Temprano");
+            modelo.addColumn("Retraso");
+            modelo.addColumn("Estado");
+            jTable1.setModel(modelo);
+            
+                
+          
+            
         /* DefaultTreeModel modelo = (DefaultTreeModel) jt_activs.getModel();//porque el ()
             DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelo.getRoot();
             raiz.removeAllChildren();
@@ -581,7 +633,7 @@ public class princi extends javax.swing.JFrame {
             modelo.reload();
          */
 
-
+        }
     }//GEN-LAST:event_jtapStateChanged
 
     private void projectosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_projectosItemStateChanged
@@ -628,14 +680,6 @@ public class princi extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButton3MouseClicked
-
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-        // TODO add your handling code here:
-        System.out.println("Projecto " + projects.get(0));
-        System.out.println("Actividades Principales " + projects.get(0).getActividades());
-        System.out.println("Actividades Sucesoras " + projects.get(0).getActividades().get(0).getActividades_sucesoras());
-        System.out.println("Actividades Predecesoras " + projects.get(0).getActividades().get(0).getActividades_predecesoras());
-    }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         // TODO add your handling code here:
@@ -736,54 +780,59 @@ public class princi extends javax.swing.JFrame {
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
         // TODO add your handling code here:
-        DefaultTreeModel modelo = (DefaultTreeModel) jt_activs.getModel();//porque el ()
-        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelo.getRoot();
-        String o = JOptionPane.showInputDialog(this, "Que desea modificar ?\n1) Actividad principal\n2) Actividades Predecesoras\n3) Actividades Sucesoras ");
-        int pos = Integer.parseInt(o);
-        if (pos == 1) {
-            String p = JOptionPane.showInputDialog(this, "Ingrese la nueva duracion de la Actividad Principal");
-            int pos2 = Integer.parseInt(p);
-            actividad_seleccionado = ((Actividades) ((DefaultMutableTreeNode) raiz.getChildAt(0).getChildAt(0)).getUserObject());
-            actividad_seleccionado.setDuracion(pos2);
-            if (actividad_seleccionado.getActividades_predecesoras().isEmpty()) {
-                actividad_seleccionado.setInicio_temprano(1);
-                actividad_seleccionado.setFinal_temprano(actividad_seleccionado.getInicio_temprano() + actividad_seleccionado.getDuracion());
-            } else {
-                int mayor = actividad_seleccionado.getActividades_predecesoras().get(0).getPosibilidad_retraso();
-                for (int i = 0; i < actividad_seleccionado.getActividades_predecesoras().size(); i++) {
-                    for (int j = 0; j < actividad_seleccionado.getActividades_predecesoras().size(); j++) {
-                        if (actividad_seleccionado.getActividades_predecesoras().get(i).getPosibilidad_retraso() > actividad_seleccionado.getActividades_predecesoras().get(j).getPosibilidad_retraso()) {
-                            mayor = actividad_seleccionado.getActividades_predecesoras().get(i).getPosibilidad_retraso();
-                        }
-                    }
+        try {
 
+            DefaultTreeModel modelo = (DefaultTreeModel) jt_activs.getModel();//porque el ()
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelo.getRoot();
+            String o = JOptionPane.showInputDialog(this, "Que desea modificar ?\n1) Actividad principal\n2) Actividades Predecesoras\n3) Actividades Sucesoras ");
+            int pos = Integer.parseInt(o);
+            if (pos == 1) {
+                String p = JOptionPane.showInputDialog(this, "Ingrese la nueva duracion de la Actividad Principal");
+                int pos2 = Integer.parseInt(p);
+                actividad_seleccionado = ((Actividades) ((DefaultMutableTreeNode) raiz.getChildAt(0).getChildAt(0)).getUserObject());
+                actividad_seleccionado.setDuracion(pos2);
+                if (actividad_seleccionado.getActividades_predecesoras().isEmpty()) {
+                    actividad_seleccionado.setInicio_temprano(1);
+                    actividad_seleccionado.setFinal_temprano(actividad_seleccionado.getInicio_temprano() + actividad_seleccionado.getDuracion());
+                } else {
+                    int mayor = actividad_seleccionado.getActividades_predecesoras().get(0).getPosibilidad_retraso();
+                    for (int i = 0; i < actividad_seleccionado.getActividades_predecesoras().size(); i++) {
+                        for (int j = 0; j < actividad_seleccionado.getActividades_predecesoras().size(); j++) {
+                            if (actividad_seleccionado.getActividades_predecesoras().get(i).getPosibilidad_retraso() > actividad_seleccionado.getActividades_predecesoras().get(j).getPosibilidad_retraso()) {
+                                mayor = actividad_seleccionado.getActividades_predecesoras().get(i).getPosibilidad_retraso();
+                            }
+                        }
+
+                    }
+                    System.out.println("maynor " + mayor);
+                    actividad_seleccionado.setInicio_temprano(mayor + 1);
+                    actividad_seleccionado.setFinal_temprano(actividad_seleccionado.getInicio_temprano() + actividad_seleccionado.getDuracion());
+                    actividades_principales.remove(index);
+                    actividades_principales.add(actividad_seleccionado);
                 }
-                System.out.println("maynor " + mayor);
-                actividad_seleccionado.setInicio_temprano(mayor + 1);
-                actividad_seleccionado.setFinal_temprano(actividad_seleccionado.getInicio_temprano() + actividad_seleccionado.getDuracion());
-                actividades_principales.remove(index);
-                actividades_principales.add(actividad_seleccionado);
+                System.out.println("Duracion " + actividad_seleccionado.getDuracion());
+                System.out.println("Inicio temprano " + actividad_seleccionado.getInicio_temprano());
+                System.out.println("Final temprano " + actividad_seleccionado.getFinal_temprano());
+                System.out.println(actividades_principales);
+            } else if (pos == 2) {
+                String p = JOptionPane.showInputDialog(this, "Ingrese la posicion de la actividad que desea modificar");
+                int pos2 = Integer.parseInt(p);
+                actividad_seleccionado = ((Actividades) ((DefaultMutableTreeNode) raiz.getChildAt(0).getChildAt(0).getChildAt(0).getChildAt(pos2)).getUserObject());
+                String p2 = JOptionPane.showInputDialog(this, "Ingrese la nueva Duracion de la actividad PREDECESORA");
+                int pos22 = Integer.parseInt(p2);
+                actividad_seleccionado.setDuracion(pos22);
+            } else if (pos == 3) {
+                String p = JOptionPane.showInputDialog(this, "Ingrese la posicion de la actividad que desea modificar");
+                int pos2 = Integer.parseInt(p);
+                actividad_seleccionado = ((Actividades) ((DefaultMutableTreeNode) raiz.getChildAt(0).getChildAt(0).getChildAt(1).getChildAt(pos2)).getUserObject());
+                String p2 = JOptionPane.showInputDialog(this, "Ingrese la nueva Duracion de la actividad SUCESORA");
+                int pos22 = Integer.parseInt(p2);
+                actividad_seleccionado.setDuracion(pos22);
+            } else {
+                JOptionPane.showMessageDialog(this, "Dato no Valido!");
             }
-            System.out.println("Duracion " + actividad_seleccionado.getDuracion());
-            System.out.println("Inicio temprano " + actividad_seleccionado.getInicio_temprano());
-            System.out.println("Final temprano " + actividad_seleccionado.getFinal_temprano());
-            System.out.println(actividades_principales);
-        } else if (pos == 2) {
-            String p = JOptionPane.showInputDialog(this, "Ingrese la posicion de la actividad que desea modificar");
-            int pos2 = Integer.parseInt(p);
-            actividad_seleccionado = ((Actividades) ((DefaultMutableTreeNode) raiz.getChildAt(0).getChildAt(0).getChildAt(0).getChildAt(pos2)).getUserObject());
-            String p2 = JOptionPane.showInputDialog(this, "Ingrese la nueva Duracion de la actividad PREDECESORA");
-            int pos22 = Integer.parseInt(p2);
-            actividad_seleccionado.setDuracion(pos22);
-        } else if (pos == 3) {
-            String p = JOptionPane.showInputDialog(this, "Ingrese la posicion de la actividad que desea modificar");
-            int pos2 = Integer.parseInt(p);
-            actividad_seleccionado = ((Actividades) ((DefaultMutableTreeNode) raiz.getChildAt(0).getChildAt(0).getChildAt(1).getChildAt(pos2)).getUserObject());
-            String p2 = JOptionPane.showInputDialog(this, "Ingrese la nueva Duracion de la actividad SUCESORA");
-            int pos22 = Integer.parseInt(p2);
-            actividad_seleccionado.setDuracion(pos22);
-        } else {
-            JOptionPane.showMessageDialog(this, "Dato no Valido!");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ingrese DAtos Validos");
         }
     }//GEN-LAST:event_jButton7MouseClicked
 
@@ -839,6 +888,7 @@ public class princi extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -849,9 +899,12 @@ public class princi extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTable jTable1;
     private javax.swing.JList<String> jl_predecesoras;
     private javax.swing.JList<String> jl_sucesoras;
     private javax.swing.JTree jt_activs;
@@ -863,6 +916,7 @@ public class princi extends javax.swing.JFrame {
     private javax.swing.JTextField tf_nombre;
     private javax.swing.JTextField tf_nombre_projecto;
     private javax.swing.JPanel uno;
+    private javax.swing.JComboBox<String> wombo_hilo;
     private javax.swing.JComboBox<String> wombo_projecto;
     private javax.swing.JComboBox<String> wombo_tipo;
     // End of variables declaration//GEN-END:variables
